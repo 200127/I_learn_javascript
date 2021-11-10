@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery/jquery.min.js"></script>
+</head>
+<body>
+    <div class="yeye">
+        <div class="father">
+            <div class="son">儿子</div>
+        </div>
+    </div>
+    <div class="nav">
+        <p>我是屁股</p>
+        <div>
+            <p>我是p</p>
+        </div>
+    </div>
+
+    <div class="ok">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <script>
+        $(function(){
+            //1. 父 parent
+            // console.log($(".son").parent());
+            // console.log($(".father").parent());
+            // console.log($(".yeye").parent());
+            // console.log($("body").parent());
+            // console.log($("html").parent());
+            //2. 子  children()
+            // console.log($('.nav').children());
+            $('.nav').find('p').css('color','red');
+            //3. 兄
+            // siblings()
+            //选择
+            // $('.ok ul li:eq(2)').css('color','red');
+            $('.ok ul li').eq(3).css('color','pink')
+            //重点记住
+            // parent() children() find() siblings() eq()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        li{
+            list-style: none;
+            float: left;
+            margin: 10px 3px;
+        }
+        .wrap{
+            width: 620px;
+            height: 440px;
+            border: 1px solid #fff;
+            margin: 80px auto;
+        }
+        .wrap img{
+            display: block;
+            width: 200px;
+            height: 200px;
+            border: 0;
+        }
+    </style>
+    <script>
+        $(function(){
+            //鼠标进入的时候，其他的li标签透明度 ： 0.5
+            $(".wrap li").hover(function(){
+                $(this).siblings().stop().fadeTo(1000,0.5)
+            },function(){
+                $(this).siblings().stop().fadeTo(1000,1)
+            })
+            //离开的时候透明度改为 1
+        })
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="#"><img src="../imges/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="../imges/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="../imges/3.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="../imges/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="../imges/5.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="../imges/6.jpg" alt=""></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

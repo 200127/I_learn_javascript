@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+        #weibo{
+            width: 600px;
+            height: 250px;
+            border: 1px solid black;
+            margin: 50px auto;
+            position: relative;
+        }
+        #weibo .txt{
+            position: absolute;
+            width: 400px;
+            top: 20px;
+            left: 100px;
+        }
+        #weibo .btn{
+            position: absolute;
+            top: 158px;
+            left: 510px;
+        }
+        #weibo span{
+            position: absolute;
+            top: 160px;
+            left: 1px;
+        }
+        #weibo ul{
+            position: absolute;
+            top: 176px;
+            left: 84px;
+            width: 400px;
+            height: 100px;
+        }
+        #weibo ul li{
+            display: none;
+            line-height: 25px;
+            border-bottom: 1px dashed #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            // 1、点击发布按钮，动态生成小li，放在文本框的内容和删除按钮，并且添加ul中
+            $(".btn").on("click",function(){
+                var li = $("<li></li>");
+                li.html($(".txt").val() + "<a href='javascript:;'>删除</a>");
+                $(".box ul").prepend(li);
+                li.slideDown();
+                $(".txt").val("");
+            })
+            // 2、点击删除，可以删除当前留言
+            $("ul").on("click","a",function(){
+                $(this).parent().slideUp(function(){
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+    <div class="box" id="weibo">
+        <span>新闻发布</span>
+        <textarea name="" class="txt" cols="30" rows="10"></textarea>
+        <button class="btn">发布</button>
+        <ul>
+
+        </ul>
+    </div>
+</body>
+</html>

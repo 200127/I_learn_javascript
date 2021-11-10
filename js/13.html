@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: 100px auto;
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td, th{
+            border: 1px solid rosybrown;
+        }
+        thead tr{
+            height: 40px;
+            background: #ccc;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var int = [
+            {
+                uname : '刘佳',
+                subject : 'Java',
+                score : 100
+        },
+        {
+                uname : '子丹',
+                subject : 'Javascript',
+                score : 100
+        },
+        {
+                uname : '炳添',
+                subject : 'Javascript',
+                score : 100
+        }
+    ];
+    var tb = document.querySelector('tbody');
+    for(var i = 0;i<int.length;i++){
+        //创建元素 tr
+        var tr = document.createElement('tr');
+        tb.appendChild(tr);
+        //行里面创建单元格 td
+        for(k in int[i]){
+            var td = document.createElement('td');
+            td.innerHTML = int[i][k];
+            tr.appendChild(td);
+        }
+        var td = document.createElement('td');
+        td.innerHTML = "<a href='javascript:;'>删除</a>";
+        tr.appendChild(td);
+    }
+    //删除操作
+    var a = document.querySelectorAll('a');
+    for(var i = 0;i<a.length;i++){
+        a[i].onclick = function(){
+            tb.removeChild(this.parentNode.parentNode);
+        }
+    }
+    </script>
+</body>
+</html>

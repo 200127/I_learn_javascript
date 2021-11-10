@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            margin: 100px auto;
+            text-align: center;
+        }
+        ul{
+            width: 500px;
+            height: 150px;
+            margin: 0px auto;
+        }
+        li{
+            background: darkcyan;
+            width: 400px;
+            height: 20px;
+            list-style: none;
+            margin: 2px;
+        }
+        ul li{
+            text-align: left;
+        }
+        li a{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>按钮</button>
+        <ul>
+            
+        </ul>
+    </div>
+
+    <script>
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        btn.onclick = function(){
+            if(text.value == ''){
+                alert('输入内容');
+                return false;
+            }else{
+                var li = document.createElement('li');
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                // ul.appendChild(li);
+                ul.insertBefore(li,ul.children[0]);
+                //删除链接
+                var as = document.querySelectorAll('a');
+                for(var i =0;i<as.length;i++){
+                    as[i].onclick = function(){
+                        console.log(this.parentNode);
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

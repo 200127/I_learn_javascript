@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            position:absolute;
+            background: blue;
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <button class="btn0">回归</button>
+    <button class="btn500">点击按钮进500</button>
+    <button class="btn800">点击按钮进800</button>
+    <span></span>
+    <script>
+        function animate(obj,target,calback){
+            //先清除以前定时器
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function(){
+                //步长值写到定时器里面
+                //把小数转换成整数，不要出现小数运算
+                // var step = Math.ceil((target - obj.offsetLeft) / 10);
+                var step = (target - obj.offsetLeft) / 10
+                var step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if(obj.offsetLeft == target){
+                    clearInterval(obj.timer);
+                    if(calback){
+                        //调用函数
+                        calback();
+                    }
+                }
+                //把每次加1 这个步长值改为一个个慢慢变小的值   步长公式：(目标值 - 现在的位置) / 10
+                obj.style.left = obj.offsetLeft + step + 'px';
+            },15);
+        };
+        var span = document.querySelector('span');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+        var btn0 = document.querySelector('.btn0');
+        btn500.addEventListener('click',function(){
+            animate(span,500,function(){
+                span.style.backgroundColor = 'red';
+            });
+        });
+        btn800.addEventListener('click',function(){
+            animate(span,800,function(){
+                span.style.backgroundColor = 'pink';
+            });
+        });
+        btn0.addEventListener('click',function(){
+            animate(span,0,function(){
+                span.style.backgroundColor = 'blue';
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .w{
+            width: 1100px;
+            margin: 0 auto;
+        }
+        .header{
+            height: 200px; 
+            background: chartreuse;
+            text-align: center;
+        }
+        .banner{
+            height: 450px; 
+            background: chocolate;
+            text-align: center;
+            margin: 10px auto;
+        }
+        .main{
+            height: 500px; 
+            background: cornflowerblue;
+            text-align: center;
+            margin: 10px auto;
+        }
+        .slider-bar{
+            display: none;
+            text-align: center;
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            top: 400px;
+            right: 2px;
+        }
+        .goBack{
+            background: red;
+            position: relative;
+            bottom: 0;
+            cursor:pointer;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        var sliderbar = document.querySelector('.slider-bar');
+        var baner = document.querySelector('.banner');
+        //2.页面滚动事件scroll
+        document.addEventListener('scroll',function(){
+            //window.pageYOffset  是被卷去头部像素的大小
+            //当被卷去的头部大于等于baner头部像素时候，改为固定定位
+            if(window.pageYOffset >= baner.offsetTop){
+                sliderbar.style.display = 'block';
+                sliderbar.style.position = 'fixed';
+            }else{
+                sliderbar.style.position = 'absolute';
+                sliderbar.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+</html>

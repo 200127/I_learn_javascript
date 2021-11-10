@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function(){
+            // 1.each() 方法遍历元素
+            var arr = ["red","pink","blue"];
+            var sun = 0;
+            $("div").each(function(i,domEle){
+                // 第一个参数是索引号，可以自己定义名字
+                console.log(i);
+                // 第二个是 DOM元素对象也是自定义名字,要使用对象转换Jquery对象
+                console.log(domEle);
+                // $(domEle).css("color","red");
+                $(domEle).css("color",arr[i])
+                sun += parseInt($(domEle).text());
+            })
+            console.log(sun);
+        })
+    </script>
+</body>
+</html>

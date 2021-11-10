@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .wrapper{
+            width: 406px;
+            height: 376px;
+            background-color: pink;
+            margin: 50px auto;
+            position: relative;
+        }
+        #left{
+            background-color: pink;
+            width: 80px;
+            height: 376px;
+        }
+        #left li{
+            background-color: #ccc;
+            width: 80px;
+            height: 40px;
+            margin: 2px 0;
+        }
+        #left li a{
+            text-align: center;
+            display: block;
+            line-height: 40px;
+            color: #fff;
+        }
+        #contend{
+            width: 326px;
+            height: 376px;
+            position: absolute;
+            top: 0px;
+            left: 80px;
+        }
+        #contend div{
+            list-style: none;
+            width: 326px;
+            height: 376px;
+            position: absolute;
+            top:0px;
+            left:0px;
+        }
+        .contend1{background-color: red;}.contend2{background-color: green;}.contend3{background-color: Purple;}
+        .contend4{background-color: blue;}.contend5{background-color: black;}.contend6{background-color: pink;}
+        .contend7{background-color: #fff;}.contend8{background-color: grey;}.contend9{background-color: Orange;}
+        
+    </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            //1.鼠标经过左边小li
+            $('#left li').mouseover(function(){
+                //得到当前小li的索引号
+                var index = $(this).index();
+                //让我们右侧的盒子相应的颜色显示出来
+                $('#contend div').eq(index).show();
+                //其余的图片隐藏
+                $('#contend div').eq(index).siblings().hide();
+            })
+        })
+    </script>
+    <div class="wrapper">
+        <ul id="left">
+            <li><a href="#">红色</a></li>
+            <li><a href="#">绿色</a></li>
+            <li><a href="#">紫色</a></li>
+            <li><a href="#">蓝色</a></li>
+            <li><a href="#">黑色</a></li>
+            <li><a href="#">粉色</a></li>
+            <li><a href="#">白色</a></li>
+            <li><a href="#">灰色</a></li>
+            <li><a href="#">橙色</a></li>
+        </ul>
+        <div id="contend">
+            <div class="contend1">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend2">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend3">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend4">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend5">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend6">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend7">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend8">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+            <div class="contend9">
+                <a href="#" ><img src="" alt="" width="326px" height="376px"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

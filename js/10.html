@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 400px;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 100px auto;
+        }
+        thead tr th input{
+            margin: 0px 0px 0px 12px; 
+        }
+        table tr th{
+            border: 1px solid #333;
+        }
+        table tr td{
+            border:1px solid #333;
+        }
+        thead tr{
+            background: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="j_All"></th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody id="j_tb">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iPhone8</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Huawe</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>SanXin</td>
+                <td>1500</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Apple</td>
+                <td>30000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var j = document.getElementById('j_All');
+        var jAll = document.getElementById('j_tb').getElementsByTagName('input');
+        j.onclick = function(){
+            for(var i = 0; i < jAll.length; i++){
+                jAll[i].checked = this.checked;
+            }
+        }
+        for(var i = 0; i < jAll.length; i++){
+            jAll[i].onclick = function(){
+                var flag = true;
+                for(var i = 0; i < jAll.length; i++){
+                    if(!jAll[i].checked){
+                        flag = false;
+                        break;
+                    }
+                }
+                j.checked = flag;            
+            }
+        }
+    </script>
+    
+</body>
+</html>

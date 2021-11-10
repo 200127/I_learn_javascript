@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>123</div>
+    <a href="www.baidu.com">百度</a>
+    <!-- 
+        e.target                返回触发事件对象        标准        
+        e.srcElement            返回触发事件对象        非标准 ie6-8使用
+        e.type                  返回事件的类型          返回事件类型 比如click mouseover 不带 on
+        e.cancelBubble          该属性阻止冒泡 非标准 ie6-8使用
+        e.returnValue           该属性 阻止默认事件（默认行为） 非标准 ie6-8使用 比如不让链接跳转
+        e.preventDefault()      该方法 阻止默认事件 （默认行为） 标准 比如不让链接跳转
+        e.stopPropagation()     阻止冒泡 标准
+     -->
+    <script>
+        var div = document.querySelector('div');
+        var a = document.querySelector('a');
+        div.addEventListener('click',function(e){
+            console.log(e.target);
+        })
+        a.addEventListener('click',function(e){
+            console.log(e.preventDefault());
+            alert(11);
+        })
+
+    </script>
+    
+</body>
+</html>

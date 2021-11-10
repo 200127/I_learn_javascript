@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    
+    // var one = new Object();
+    // one.name = '鸣人';
+    // one.sex = '男';
+    // one.age = 19;
+    // one.skill = function(){
+    //     console.log('影分身术');
+    // }
+    // console.log(one.name);
+    // console.log(one['sex']);
+    // one.skill();
+
+
+
+    var computer = new Object();
+    computer.color = 'red';
+    computer.weight = '366/克';
+    computer.brand = '华为';
+    computer.dofunction = function(){
+        console.log('看电影');
+        console.log('听音乐');
+        console.log('打游戏');
+        console.log('敲代码');
+     }
+     for (var k in computer){
+         console.log(computer[k]);
+     }
+
+     var buttent = new Object();
+     buttent.width = 75;
+     buttent.height = 85;
+     buttent.backgroundcolor = '红色';
+     buttent.dofunction = function(){
+         console.log('点击行为');
+     }
+     for(var k in buttent){
+         console.log(buttent[k]);
+     }
+
+     var car = new Object();
+     car.weight = '40Ton';
+     car.color = 'white';
+     car.brand = '吉普';
+     car.dofunction = function(){
+         console.log('可以载人');
+         console.log('可以拉货');
+         console.log('可以耕田');
+     }
+     for(var k in car){
+         console.log(car[k]);
+     }
+
+
+     function Array(){
+         var int = [];
+         for(var i = arguments.length - 1; i >= 0; i--){
+             int[int.length] = arguments[i]
+         }
+         return int;
+     }
+    //  var int3 = Array(1,2,3,4,5,6);
+    //  console.log(int3);
+
+
+    var int = prompt('欢迎使用简易计算器:'+
+                '\n 1.加法运算'+
+                '\n 2.减法运算'+
+                '\n 3.乘法运算'+
+                '\n 4.除法运算'+
+                '\n 5.退出'+
+                '\n 请输入您的选项:');
+    if(int = 1){
+         var one = prompt('请输入第一个数字！');
+         var two = prompt('输入第二个数字！')
+         var three = parseInt(one) + parseInt(two);
+         alert(three);
+     }
+
+
+     
+
+</script>
+<body>
+    
+</body>
+</html>

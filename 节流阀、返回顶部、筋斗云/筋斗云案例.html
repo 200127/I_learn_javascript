@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../缓动动画原理与封/js/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        li{
+            list-style: none;
+        }
+        #c_nav{
+            background-color: #ccc;
+            width: 900px;
+            height: 80px;
+            margin: 50px auto;
+            position: relative;
+        }
+        #c_nav ul li a{
+            float: left;
+            margin-top:30px ;
+            margin-right: 25px;
+        }
+        .cloud{
+            background-color: pink;
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: 6px;
+            left: 0px;
+            opacity: 0.5;
+        }
+        .current{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="c-nav" id="c_nav">
+        <span class="cloud"></span>
+        <ul class="one">    
+            <li class="current"><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动测绘</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简洁</a></li>
+            <li><a href="#">我是佩奇</a></li>
+            <li><a href="#">佩奇是我</a></li>
+        </ul>
+    </div>
+    <script>
+        var cloud = document.querySelector('.cloud');
+        var one = document.querySelector('.one');
+        var a = one.querySelectorAll('a');
+        // for循环
+        for(var i = 0;i < a.length;i++){
+             a[i].addEventListener('mouseenter',function(){
+                animate(cloud,this.offsetLeft);
+                console.log(this.offsetLeft);
+             });
+             a[i].addEventListener('mouseleave',function(){
+                animate(cloud,0);
+             });
+        }
+    </script>
+</body>
+</html>

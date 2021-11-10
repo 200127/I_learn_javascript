@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+        div{
+            width: 1.333333rem;
+            height: 1.333333rem;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            $("div").on({
+                click: function(){
+                    console.log("点击");
+                },
+                mouseover:function(){
+                    console.log("经过");
+                }
+            })
+            $("ul").on("click","li",function(){
+                alert(1);
+            })
+            // 1、解绑事件 off
+            // $("div").off();// 解除所有
+            $("div").off("click");// 解除了dic click事件
+            // 解除事件委托
+            $("ul").off("click","li");
+
+            // 2. one() 只触发一次
+            $("p").one("click",function(){
+                al4ert("一次")
+            })
+        })
+    </script>
+    <div>点击一下</div>
+    <ul>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+    </ul>
+    <p>一次</p>
+</body>
+</html>

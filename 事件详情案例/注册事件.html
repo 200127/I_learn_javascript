@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>传统</button>
+    <button>监听器</button>
+    
+    <script>
+        var btn = document.querySelectorAll('button');
+        btn[0].onclick = function(){
+            alert('hi');
+        }
+        btn[0].onclick = function(){
+            alert('h a y');
+        }
+
+        btn[1].addEventListener('click',function(){
+            alert('hi');
+        });
+        btn[1].addEventListener('click',function(){
+            alert(' h a y');
+        })
+    </script>
+</body>
+</html>

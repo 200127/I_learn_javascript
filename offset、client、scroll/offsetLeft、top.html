@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            background-color: pink;
+            height: 300px;
+            width: 300px;
+            margin:  100px 200px 200px 200px;
+            position: absolute;
+        }
+        .son{
+            background-color: royalblue;
+            width: 100px;
+            height: 100px;
+            margin: 80px 70px ;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var fathers = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        console.log(fathers.offsetLeft);
+        console.log(fathers.offsetTop);
+        console.log(son.offsetLeft);
+        console.log(son.offsetTop);
+    </script>
+</body>
+</html>

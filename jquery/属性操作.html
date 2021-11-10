@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            //1.获取属性 prop()
+            console.log($("a").prop("href"));
+            $("a").prop("title","好个屁股");
+            $("input").change(function(){
+                console.log($(this).prop("checked"));
+            })
+
+            //2.自定义属性通过 attr()
+            console.log($("div").attr("index"));
+            $("div").attr("index",9);
+
+            //3.数据缓存 data() 这个里面的数据存在内存
+
+            $("span").data("uname","大笨猪");
+            console.log($("span").data("uname"));
+        })
+    </script>
+    <a href="https://www.baidu.com" title="你好"></a>
+    <input type="checkbox" name="" id="" checked>
+    <div index="1" data-index="2" >我是div</div>
+    <span>你是猪</span>
+</body>
+</html>

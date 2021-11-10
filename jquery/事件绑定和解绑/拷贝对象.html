@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            // var targetobj = {};
+            // var obj = {
+            //     id: 1,
+            //     name: "andy"
+            // };
+            // $.extend(targetobj,obj);
+            // console.log(targetobj);
+
+            var targetobj = {
+                id: 0,
+                name: "Tom"
+            };
+            var obj = {
+                id: 1,
+                name: "andy"
+            };
+            $.extend(targetobj,obj); // 会覆盖之前的数据
+            console.log(targetobj);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .king{
+            width: 800px;
+            height: 90px;
+            background: pink;
+            margin: 80px auto;
+        }
+        .current{
+            /* background-color: #fff; */
+            width: 155px;
+            height: 70px;
+            float: left;
+            margin: 10px 2px;
+            position: relative;
+        }
+        .small{
+            width: 155px;
+            height: 70px;
+            display: none;
+        }
+        .big{
+            width: 70px;
+            height: 69px;
+            /* background-color: red; */
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            z-index: 2;
+        }
+        .ok{
+            display: block;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".king li").mouseenter(function(){
+                $(this).animate({
+                    width:115
+                }).find(".big").fadeOut().siblings(".small").fadeIn();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="king">
+        <ul>
+            <li class="current one">
+                <a href="#">
+                    <img src="imges/1.jpg" alt="" class="small ok">
+                    <img src="imges/1.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="current two">
+                <a href="#">
+                    <img src="imges/2.jpg" alt="" class="small">
+                    <img src="imges/2.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="current three">
+                <a href="#">
+                    <img src="imges/3.jpg" alt="" class="small">
+                    <img src="imges/3.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="current fover">
+                <a href="#">
+                    <img src="imges/4.jpg" alt="" class="small">
+                    <img src="imges/4.jpg" alt="" class="big">
+                </a>
+            </li>
+            <li class="current fave">
+                <a href="#">
+                    <img src="imges/5.jpg" alt="" class="small">
+                    <img src="imges/5.jpg" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

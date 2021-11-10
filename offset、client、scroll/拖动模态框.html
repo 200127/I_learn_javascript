@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        a{
+            text-decoration: none;
+        }
+        .login-header{
+            margin-top: 20px;
+            text-align: center;
+        }
+        #link{
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+        .login{
+            display: none;
+            background-color: #ffff;
+            margin: 0 auto;
+            border: #ebebeb 1px solid ;
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+        }
+        #title{
+            text-align: center;
+            margin: 10px auto;
+            width: 100%;
+            height: 50px;
+            cursor: move;
+        }
+        .login-title{
+            font-size: 20px;
+        }
+        span{
+            position: absolute;
+        }
+        #closeBtn{
+            color: #333;
+            background-color: #ffff;
+            width: 50px;
+            height: 50px;
+            font-size: 15px;
+            position: relative;
+            top: -33px;
+            left: 187px;
+            border-radius: 50%;
+            display: block;
+            text-align: center;
+            line-height: 49px;
+        }
+        .login-input{
+            margin: -4px 0 18px 57px;
+        }
+        #usernames{
+            width: 300px;
+            height: 25px;
+        }
+        #password{
+            width: 300px;
+            height: 25px;
+        }
+        .login-input-2{
+            margin: -4px 0 18px 41px;
+        }
+        .login-button{
+            border: 1px solid rgb(92, 91, 91);
+            width: 188px;
+            height: 35px;
+            margin: 40px auto;
+        }
+        #login-button-submit{
+            text-align: center;
+            display: block;
+            line-height:33px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg" class="login-bg"></div>
+    <div class="login-header"><a id="link" href="javascript:;">点击，弹出登录框</a></div>
+
+    <div id="login" class="login">
+        <div id="title" class="login-title">登录会员
+            <span><a id="closeBtn" class="close-login" href="javascript:void(0)">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名" name="info[username]" id="usernames" class="usernames">
+            </div>
+            <div class="login-input-2">
+                <label>登录密码：</label>
+                <input type="password" placeholder="请输入密码" name="info[password]" id="password" class="password">
+            </div>
+        </div>
+        <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit">会员登录</a></div>
+    </div>
+    <script>
+        var login = document.querySelector('.login');
+        var link = document.querySelector('#link');
+        var closeBtn = document.querySelector('#closeBtn');
+        var body = document.querySelector('body');
+        var title = document.querySelector('#title');
+        link.addEventListener('click',function(){
+            login.style.display = 'block';
+            body.style.backgroundColor = 'rgba(0, 0, 0, .3)';
+        });
+        closeBtn.addEventListener('click',function(){
+            login.style.display = 'none';
+            body.style.backgroundColor = '#fff';
+        });
+        //拖拽
+        title.addEventListener('mousedown',function(e){
+            var x = e.pageX - login.offsetLeft;
+            var y = e.pageY - login.offsetTop;
+            console.log(x,y);
+            document.addEventListener('mousemove',mouse);
+            function mouse(e){
+                    login.style.left = e.pageX - x + 'px';
+                    login.style.top = e.pageY - y + 'px';
+                }
+            //鼠标松起
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',mouse)
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        .current{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+        <li>孩子</li>
+    </ul>
+    <ol>
+
+    </ol>
+    <script>
+        $(function(){
+            // 1、用on绑定事件
+            $("div").on({
+                mouseenter:function(){
+                    $(this).css("background","red")
+                },
+                click: function(){
+                    $(this).css("background","blue")
+                },
+                mouseleave: function(){
+                    $(this).css("background","purple")
+                }
+            })
+            // 2、用on来实现鼠标经过，鼠标离开添加类
+            $("div").on("mouseenter mouseleave",function(){
+                $(this).toggleClass("current");
+            });
+            // On可以实现事件委托(委派)
+            $("ul").on("click","li",function(){
+                alert(1)
+            })
+            // click是绑定在ul身上，但触发的是里面的小li
+
+            // 3、on可以给未来动态创建的元素绑定事件
+            // $("ol li").click(function(){
+            //     alert(1)
+            // })
+            $("ol").on("click","li",function(){
+                alert(1)
+            })
+            var li = $("<li>后来创建</li>");
+            $("ol").append(li);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery/jquery.min.js"></script>
+    <style>
+        a{
+            text-decoration: none;
+            font-size: 25px;
+        }
+        .form{
+            margin: 80px auto;
+            width: 300px;
+            height: 100px;
+        }
+        .itxt{
+            width: 50px;
+            text-align: center;
+            height: 30px;
+        }
+        .price{
+            position: absolute;
+            left: 400px;
+            top: 90px;
+            margin: 1px 2px;
+        }
+        .ok{
+            position: absolute;
+            top: 62px;
+            left: 420px;
+        }
+        .price2{
+            position: absolute;
+            top: 90.5px;
+            left: 615px;
+        }
+        .ok2{
+            position: absolute;
+            top: 62px;
+            left: 630px;
+        }
+        </style>
+</head>
+<body>
+    <script>
+        $(function(){
+            //点击右按钮++
+            $(".right").click(function(){
+                var nun = $(this).siblings(".itxt").val();
+                nun++;
+                $(this).siblings(".itxt").val(nun);
+                //计算++后价格
+                var p = $(this).parents().siblings(".price").html();
+                // console.log(p);
+                var p = p.substr(10);
+                // console.log(p);
+                // toFixed 保留小数
+                var num = (p * nun).toFixed(2);
+                var p2 = $(this).parents().siblings(".price2").html("￥"+ num);
+            })
+            // 点击左按钮--
+            $(".left").click(function(){
+                var nun = $(this).siblings(".itxt").val();
+                if(nun == 1){
+                    return false;
+                }
+                nun--;
+                $(this).siblings(".itxt").val(nun);
+                var p = $(this).parents().siblings(".price").html();
+                // console.log(p);
+                var p = p.substr(10);
+                // console.log(p);
+                var num = (p * nun).toFixed(2);
+                $(this).parents().siblings(".price2").html("￥"+ num);
+            })
+            // 用户修改文本框的值 计算 小计模块
+            $(".itxt").change(function(){
+                // 先得到文本框里面的值  *  当前商品的单价
+                var n = $(".itxt").val();
+                var p = $(this).parents().siblings(".price").html();
+                // console.log(p);
+                var p = p.substr(10);
+                $(this).parents().siblings(".price2").html("￥"+ (n * p).toFixed(2));
+            })
+        })
+    </script>
+        <div class="ok">单价</div>
+        <div class="price">
+            ￥12.60
+        </div>
+        <div class="form">
+            <a href="javascript:;" class="left">-</a>
+            <input type="text" value="1" class="itxt">
+            <a href="javascript:;" class="right">+</a>
+        </div>
+        <div class="ok2">总价</div>
+        <div class="price2">
+            ￥12.60
+        </div>
+
+        
+</body>
+</html>

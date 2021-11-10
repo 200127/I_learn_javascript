@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <style>
+        .w{
+            width: 1100px;
+            margin: 0 auto;
+        }
+        .header{
+            height: 200px; 
+            background: chartreuse;
+            text-align: center;
+        }
+        .banner{
+            height: 450px; 
+            background: chocolate;
+            text-align: center;
+            margin: 10px auto;
+        }
+        .main{
+            height: 500px; 
+            background: cornflowerblue;
+            text-align: center;
+            margin: 10px auto;
+        }
+        .slider-bar{
+            /* display: none; */
+            text-align: center;
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            top: 400px;
+            right: 2px;
+        }
+        .goBack{
+            position: fixed;
+            display: none;
+            background: red;
+            bottom: 0;
+            cursor:pointer;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        $(function(){
+            // 被卷去的头部 scrollTop() / 被卷去的左侧 scrollLeft()
+            // 页面滚动事件
+            var boxTop = $(".main").offset().top;
+            // console.log(boxTop);
+            $(window).scroll(function(){
+                // console.log(11);
+                // console.log($(document).scrollTop());
+                if($(document).scrollTop() >= 300){
+                    $(".goBack").fadeIn(); 
+                }else{
+                    $(".goBack").fadeOut(); 
+                }
+            })
+        })
+    </script>
+</body>
+</html>

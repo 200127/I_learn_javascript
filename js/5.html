@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // var str = 'andandan';
+        // while(str.indexOf('a') !== -1){
+        //     var str = str.replace('a','b');
+        // }
+        // console.log(str);
+
+
+        var str = 'abaasxdffggghhjjkkfgfddssssss3444343';
+        console.log(str.length);//返回字符串长度
+
+        console.log(str.charAt(0));
+        console.log(str.charAt(3));//返回字符串指定位置元素 charAt
+        console.log(str.charAt(5));
+        console.log(str.charAt(9));
+
+        if(str.indexOf('i') == -1){
+            console.log('没有i');
+        }else{
+            console.log('有i');
+        }
+        if(str.indexOf('c') == -1){  //确定该元素在字符串中存在，不存在返回-1  indexOf
+            console.log('没有c');
+        }else{
+            console.log('有c');
+        }
+        if(str.indexOf('b') == -1){
+            console.log('没有b');
+        }else{
+            console.log('有b');
+        }
+
+        console.log(str.replaceAll('g','22'));
+        console.log(str.replaceAll('ss','b'));  //将什么换成什么 replace
+        console.log(str.slice(0,5));
+        
+        var str = 'abaasxdffggghhjjkkfgfddssssss3444343';
+        var o = {};
+
+        for(var i = 0; i < str.length; i++){
+            var ni = str.charAt(i); 
+            if(o[ni]){
+                o[ni]++;
+            }else{
+                o[ni] = 1;
+            }
+        }
+        var max = 0;
+        var nin = '';
+        for(var k in o){
+            if(o[k] > max){
+                max = o[k]
+                nin = k;
+            }
+        }
+        console.log('出现最多的元素是'+nin+'最多次数是'+max);
+    </script>
+
+</body>
+</html>

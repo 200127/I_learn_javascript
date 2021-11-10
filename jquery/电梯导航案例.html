@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        body{
+            position: relative;
+        }
+        .jps{
+            width: 10%;
+            height: 100px;
+            position: fixed;
+            top: 200px;
+            left: 1px;
+            display: none;
+        }
+        .jps li{
+            background: #ccc;
+            height: 25px;
+            text-align: center;
+            margin: 7px 0;
+            cursor: pointer;
+        }
+        .red{
+            color: red;
+        }
+        .father{
+            background-color: #fff;
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            left: 126px;
+        }
+        .one{
+            width: 90%;
+            height: 500px;
+            background: red;
+        }
+        .two{
+            width: 90%;
+            height: 500px;
+            background: green;
+        }
+        .three{
+            width: 90%;
+            height: 500px;
+            background: purple;
+        }
+        .for{
+            width: 90%;
+            height: 900px;
+            background: pink;
+        }
+        </style>
+</head>
+<body>
+    <div class="jps">
+        <ul>
+            <li>红色</li>
+            <li>绿色</li>
+            <li>紫色</li>
+            <li>粉色</li>
+        </ul>
+    </div>
+    <div class="father">
+        <div class="w one">红色</div>
+        <div class="w two">绿色</div>
+        <div class="w three">紫色</div>
+        <div class="w for">粉色</div>
+    </div>
+    <script>
+        $(function(){
+            var flag = true;
+            // 滚动显示左侧电梯栏
+            var toolTop = $(".two").offset().top;
+            toggleTool();
+            function toggleTool(){
+                if($(document).scrollTop() >= toolTop){
+                    $(".jps").fadeIn();
+                }else{
+                    $(".jps").fadeOut();
+                }
+            }
+            // 滚动模块
+            $(window).scroll(function(){
+                toggleTool();
+                // 当我们点击小li 此时不需要执行 页面滚动事件里面的 li 的背景选择
+                // 节流阀 互斥锁 
+                // 当我们页面滚动到了某个模块，左侧电梯小li也会添加red类
+                if(flag){
+                    $(".father .w").each(function(i,ele){
+                        if($(document).scrollTop() >= $(ele).offset().top){
+                            $(".jps li").eq(i).addClass("red").siblings().removeClass("red");
+                        }
+                    })
+                }
+            });
+            // 2.点击电梯导航页面可以滚动到相应内容区域
+            $(".jps li").click(function(){
+                flag = false;
+                // console.log($(this).index());
+                // 当我们每次点击小li的时候就要计算页面需要滚动的位置
+                //选出对应索引号对应位置
+                var tolTop = $(".father .w").eq($(this).index()).offset().top;
+                console.log(tolTop);
+                // 页面滚动
+                $("body, html").stop().animate({
+                    scrollTop: tolTop
+                },function(){
+                    flag = true;
+                });
+                // 点击之后，当前小li添加 red 类，姐妹移除red
+                $(this).addClass("red").siblings().removeClass("red");
+            });
+        })
+    </script>
+</body>
+</html>
